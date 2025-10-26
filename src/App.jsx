@@ -40,11 +40,14 @@ function App() {
       {
         institution: "Suankularb Wittayalai Thonburi School",
         degree: "High School",
-        gpax: "3.46"
+        gpax: "3.46",
+        logo: "https://sk-thonburi.ac.th/wp-content/uploads/2025/07/logo-1022x1024.png"
       },
       {
         institution: "King Mongkut's Institute of Technology Ladkrabang",
-        degree: "University"
+        degree: "University",
+         gpax: "2.xx",
+        logo: "https://old-engineer.kmitl.ac.th/wp-content/uploads/2019/03/logo02-300x270.png"
       }
     ],
     skills: {
@@ -128,12 +131,16 @@ function App() {
               {portfolioData.jobTitle}
             </p>
             <div className="flex justify-center gap-4 mb-12">
+              <a href="https://github.com/pannawat05">
               <Button variant="outline" size="icon" className="rounded-full">
                 <Github className="h-5 w-5" />
               </Button>
+              </a>
+              <a href="https://www.linkedin.com/in/pannawat-lertkomenkul-45958b18a/">
               <Button variant="outline" size="icon" className="rounded-full">
                 <Linkedin className="h-5 w-5" />
               </Button>
+              </a>
               <Button variant="outline" size="icon" className="rounded-full">
                 <Mail className="h-5 w-5" />
               </Button>
@@ -203,8 +210,9 @@ function App() {
                     <CardHeader>
                       <CardTitle>{edu.institution}</CardTitle>
                       <CardDescription className="flex items-center gap-2">
+                         <img src={edu.logo} style={{ borderRadius: '100%',width:'10%' }} alt="" srcset="" />
                         {edu.degree}
-                        {edu.gpax && <Badge variant="secondary">GPAX: {edu.gpax}</Badge>}
+                        {edu.gpax && <Badge variant="secondary">GPA: {edu.gpax}</Badge>}
                       </CardDescription>
                     </CardHeader>
                   </Card>
