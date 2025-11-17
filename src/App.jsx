@@ -69,8 +69,15 @@ function App() {
     projects: [
       {
         name: 'CSCamp18 website',
-        description: 'Website development for Computer Science Camp 18'
+        description: 'Website development for Computer Science Camp 18',
+        link: 'https://www.facebook.com/cskmitl/?locale=th_TH'
+      },
+        {
+        name: 'Budet tracker',
+        description: 'personal budget tracking web application using MERN stack for analysis and management of expenses and income.',
+        link: 'https://budgettrack.panplay-itgoeasy.xyz'
       }
+
     ]
   }
 
@@ -386,6 +393,7 @@ function App() {
             </h2>
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
               {portfolioData.projects.map((project) => (
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
                 <motion.div
                   key={project.name}
                   initial={{ opacity: 0, y: 20 }}
@@ -403,6 +411,7 @@ function App() {
                     </CardHeader>
                   </Card>
                 </motion.div>
+                </a>
               ))}
             </div>
           </motion.div>
