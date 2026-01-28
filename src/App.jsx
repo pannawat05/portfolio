@@ -57,7 +57,7 @@ function App() {
 
     skills: {
       frontend: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
-      backend: ['Express', 'Go', 'FastAPI', 'PHP'],
+      backend: ['Express', 'Go', 'FastAPI', 'PHP','Python'],
       frameworks: ['React', 'Svelte', 'Next.js', 'React Native'],
       database: ['MySQL', 'MongoDB', 'PostgreSQL', 'Supabase'],
       devops: ['AWS', 'Azure', 'GCP'],
@@ -128,6 +128,23 @@ function App() {
             </Button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden border-t border-border">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              {['about', 'education', 'skills', 'experience', 'projects'].map((s) => (
+                <button
+                  key={s}
+                  onClick={() => scrollToSection(s)}
+                  className="text-left hover:text-primary transition-colors"
+                >
+                  {s.charAt(0).toUpperCase() + s.slice(1)}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero */}
@@ -141,9 +158,13 @@ function App() {
           </p>
 
           <div className="flex justify-center gap-4 mt-8">
-            <a href="https://github.com/pannawat05"><Github /></a>
-            <a href="https://www.linkedin.com/in/pannawat-lertkomenkul-45958b18a/"><Linkedin /></a>
-            <Mail />
+            <a href="https://github.com/pannawat05" target="_blank" rel="noopener noreferrer">
+              <Github className="hover:text-primary transition-colors cursor-pointer" />
+            </a>
+            <a href="https://www.linkedin.com/in/pannawat-lertkomenkul-45958b18a/" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="hover:text-primary transition-colors cursor-pointer" />
+            </a>
+            <Mail className="hover:text-primary transition-colors cursor-pointer" />
           </div>
 
           <ChevronDown
@@ -153,40 +174,130 @@ function App() {
         </motion.div>
       </section>
 
-      {/* About */}
-      <section id="about" className="py-16">
-        <Card className="max-w-4xl mx-auto">
-          <CardContent className="p-8 text-muted-foreground">
-            I am a Junior IoT Engineer and Full-Stack Developer with hands-on experience in
-            building end-to-end systems, from IoT devices and sensors to web applications
-            and backend APIs. I enjoy working with real-time data and modern web technologies
-            to solve real-world problems.
-          </CardContent>
-        </Card>
-      </section>
+      <div className="container mx-auto px-4">
+        {/* About */}
+        <section id="about" className="py-16">
+          <Card className="max-w-4xl mx-auto">
+            <CardHeader>
+              <CardTitle className="text-3xl flex items-center justify-center gap-2">
+                <User className="text-primary" />
+                About Me
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-muted-foreground">
+              I am a Junior IoT Engineer and Full-Stack Developer with hands-on experience in
+              building end-to-end systems, from IoT devices and sensors to web applications
+              and backend APIs. I enjoy working with real-time data and modern web technologies
+              to solve real-world problems.
+            </CardContent>
+          </Card>
+        </section>
 
-      {/* Skills */}
-      <section id="skills" className="py-16">
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {skillCategories.map((cat) => (
-            <Card key={cat.name}>
-              <CardHeader>
-                <CardTitle className="flex gap-2 items-center">
-                  <div className={`p-2 rounded ${cat.color} text-white`}>
-                    <cat.icon />
-                  </div>
-                  {cat.name}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-wrap gap-2">
-                {cat.skills.map((s) => (
-                  <Badge key={s} variant="outline">{s}</Badge>
-                ))}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+        {/* Education */}
+        <section id="education" className="py-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8 flex items-center justify-center gap-2">
+              <GraduationCap className="text-primary" />
+              Education
+            </h2>
+            <div className="space-y-4">
+              {portfolioData.education.map((edu, idx) => (
+                <Card key={idx}>
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <img src={edu.logo} alt={edu.institution} className="w-16 h-16 object-contain" />
+                      <div className="flex-1">
+                        <CardTitle>{edu.institution}</CardTitle>
+                        <CardDescription className="mt-2">{edu.degree}</CardDescription>
+                        <p className="text-sm text-muted-foreground mt-1">GPAX: {edu.gpax}</p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Skills */}
+        <section id="skills" className="py-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8 flex items-center justify-center gap-2">
+              <Code className="text-primary" />
+              Skills
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {skillCategories.map((cat) => (
+                <Card key={cat.name}>
+                  <CardHeader>
+                    <CardTitle className="flex gap-2 items-center">
+                      <div className={`p-2 rounded ${cat.color} text-white`}>
+                        <cat.icon />
+                      </div>
+                      {cat.name}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex flex-wrap gap-2">
+                    {cat.skills.map((s) => (
+                      <Badge key={s} variant="outline">{s}</Badge>
+                    ))}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Experience */}
+        <section id="experience" className="py-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8 flex items-center justify-center gap-2">
+              <Briefcase className="text-primary" />
+              Work Experience
+            </h2>
+            <div className="space-y-4">
+              {portfolioData.workExperience.map((work, idx) => (
+                <Card key={idx}>
+                  <CardHeader>
+                    <CardTitle>{work.company}</CardTitle>
+                    <CardDescription>Member of the development team</CardDescription>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section id="projects" className="py-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8 flex items-center justify-center gap-2">
+              <Code className="text-primary" />
+              Projects
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {portfolioData.projects.map((project, idx) => (
+                <Card key={idx}>
+                  <CardHeader>
+                    <CardTitle>{project.name}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-primary hover:underline"
+                    >
+                      Visit Project <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* Footer */}
       <footer className="py-8 text-center text-muted-foreground border-t">
