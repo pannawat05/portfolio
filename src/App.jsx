@@ -74,7 +74,7 @@ function App() {
       {
         name: 'CSCamp18 Website',
         description: 'Website development for Computer Science Camp 18',
-        link: 'https://www.cscamp.net',
+        link: 'https://cscamp.net',
       },
       {
         name: 'Budget Tracker',
