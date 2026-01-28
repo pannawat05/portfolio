@@ -66,7 +66,7 @@ function App() {
 
     workExperience: [
       {
-        company: 'KMITL CS-Dev Team',Front-end)'
+        company: 'KMITL CS-Dev Team',
       }
     ],
 
