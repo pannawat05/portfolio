@@ -79,7 +79,7 @@ function App() {
       {
         name: 'URL shorterner',
         description:
-          'Personal budget tracking web application using MERN stack for expense and income analysis.',
+          'Service for shortening long URLs developed by MERN stack.',
         link: 'http://shorturl.panplay-itgoeasy.xyz'
       }
     ]
