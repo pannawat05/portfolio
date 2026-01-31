@@ -79,7 +79,7 @@ function App() {
       {
         name: 'URL shorterner',
         description:
-          'Service for shortening long URLs developed by MERN stack.',
+          'A URL shortening service developed using the MERN stack, enabling users to convert long URLs into short, shareable links.',
         link: 'http://shorturl.panplay-itgoeasy.xyz'
       }
     ]
