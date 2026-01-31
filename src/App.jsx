@@ -77,10 +77,10 @@ function App() {
         link: 'https://cscamp.net',
       },
       {
-        name: 'Budget Tracker',
+        name: 'URL shorterner',
         description:
           'Personal budget tracking web application using MERN stack for expense and income analysis.',
-        link: 'https://budgettrack.panplay-itgoeasy.xyz'
+        link: 'http://shorturl.panplay-itgoeasy.xyz'
       }
     ]
   }
