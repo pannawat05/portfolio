@@ -77,6 +77,13 @@ function App() {
         link: 'https://cscamp.net',
       },
       {
+        name:'Robot Arm',
+        description:`This project is a robotic arm control system developed using an ESP32 microcontroller, servo motors, joystick controller, and web interface
+The system supports multiple control modes including hardware control, WiFi web control, and record & replay mode.
+This project was created for robotics, IoT, and embedded system learning and research purposes.`,
+        link:'https://github.com/pannawat05/robotarm',
+      },
+      {
         name: 'URL shorterner',
         description:
           'A URL shortening service developed using the MERN stack, enabling users to convert long URLs into short, shareable links.',
